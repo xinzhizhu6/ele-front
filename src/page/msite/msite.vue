@@ -2,27 +2,9 @@
   <div>
     <headTop signin-up="msite">
       <router-link :to="'/home'" class="link_search" slot="search">
-        <svg
-          width="100%"
-          height="100%"
-          xmlns="http://www.w3.org/2000/svg"
-          version="1.1"
-        >
-          <circle
-            cx="8"
-            cy="8"
-            r="7"
-            stroke="rgb(255,255,255)"
-            stroke-width="1"
-            fill="none"
-          />
-          <line
-            x1="14"
-            y1="14"
-            x2="20"
-            y2="20"
-            style="stroke:rgb(255,255,255);stroke-width:2"
-          />
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" version="1.1">
+          <circle cx="8" cy="8" r="7" stroke="rgb(255,255,255)" stroke-width="1" fill="none"></circle>
+          <line x1="14" y1="14" x2="20" y2="20" style="stroke:rgb(255,255,255);stroke-width:2"></line>
         </svg>
       </router-link>
       <router-link :to="'/home'" class="msite_title" slot="msite-title">
@@ -52,7 +34,7 @@
               class="link_to_food"
             >
               <figure>
-                <img :src="imgBaseUrl + foodItem.image_url" />
+                <img :src="imgBaseUrl + foodItem.image_url">
                 <figcaption>{{ foodItem.title }}</figcaption>
               </figure>
             </router-link>
@@ -64,10 +46,7 @@
     <div class="shop_list_container">
       <header class="shop_header">
         <svg class="shop_icon">
-          <use
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            xlink:href="#shop"
-          ></use>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#shop"></use>
         </svg>
         <span class="shop_header_title">附近商家</span>
       </header>
@@ -81,7 +60,7 @@
 import { mapMutations } from "vuex";
 import headTop from "../../components/header/head";
 import shopList from "../../components/common/shopList";
-import footerBt from '../../components/footer/footerBt'
+import footerBt from "../../components/footer/footerBt";
 import { msiteAddress, msiteFoodTypes, cityGuess } from "../../service/getData";
 
 import "../../plugins/swiper.min.js";
@@ -97,9 +76,9 @@ export default {
       imgBaseUrl: "https://fuss10.elemecdn.com" //图片域名地址
     };
   },
- async beforeMount() {
+  async beforeMount() {
     if (!this.$route.query.geohash) {
-      const address =await cityGuess();
+      const address = await cityGuess();
       this.geohash = address.latitude + "," + address.longitude;
     } else {
       this.geohash = this.$route.query.geohash;
@@ -108,8 +87,8 @@ export default {
     this.SAVE_GEOHASH(this.geohash);
 
     //获取位置信息
-    let res =await msiteAddress(this.geohash);
-    console.log(res)
+    let res = await msiteAddress(this.geohash);
+    console.log(res);
     this.msiteTitle = res.name;
     this.RECORD_ADDRESS(res);
 

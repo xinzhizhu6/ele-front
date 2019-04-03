@@ -11,8 +11,14 @@ const city = r =>
 const msite = r =>
   require.ensure([], () => r(require("../page/msite/msite")), "msite");
 
+const search = r =>
+  require.ensure([], () => r(require("../page/search/search")), "search");
+
 const login = r =>
   require.ensure([], () => r(require("../page/login/login")), "login");
+
+const profile = r =>
+  require.ensure([], () => r(require("../page/profile/profile")), "profile");
 
 Vue.use(Router);
 
@@ -43,10 +49,25 @@ export default new Router({
           component: msite
         },
 
+        //搜索页
+        {
+          path: "/search/:geohash",
+          component: search
+        },
+
         //登录注册页
         {
           path: "/login",
           component: login
+        },
+
+        //个人信息页
+        {
+          path: '/profile',
+          component: profile,
+          children:[
+
+          ]
         }
       ]
     }
