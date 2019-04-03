@@ -1,0 +1,44 @@
+const RECORD_ADDRESS = "RECORD_ADDRESS";
+const ADD_CART = "ADD_CART";
+const REDUCE_CART = "REDUCE_CART";
+const INIT_BUYCART = "INIT_BUYCART";
+const CLEAR_CART = "CLEAR_CART";
+const RECORD_SHOPDETAIL = "RECORD_SHOPDETAIL";
+const RECORD_USERINFO = "RECORD_USERINFO";
+const GET_USERINFO = "GET_USERINFO";
+const CONFIRM_REMARK = "CONFIRM_REMARK";
+const CONFIRM_INVOICE = "CONFIRM_INVOICE";
+const CHOOSE_SEARCH_ADDRESS = "CHOOSE_SEARCH_ADDRESS";
+const SAVE_GEOHASH = "SAVE_GEOHASH";
+const CONFIRM_ADDRESS = "CONFIRM_ADDRESS";
+const CHOOSE_ADDRESS = "CHOOSE_ADDRESS";
+const NEED_VALIDATION = "NEED_VALIDATION";
+const SAVE_CART_ID_SIG = "SAVE_CART_ID_SIG";
+const SAVE_ORDER_PARAM = "SAVE_ORDER_PARAM";
+const CHANGE_ORDER_PARAM = "CHANGE_ORDER_PARAM";
+const ORDER_SUCCESS = "ORDER_SUCCESS";
+const SAVE_SHOPID = "SAVE_SHOPID";
+const SAVE_ORDER = "SAVE_ORDER";
+const OUT_LOGIN = "OUT_LOGIN";
+const RETSET_NAME = "RETSET_NAME";
+const SAVE_AVANDER = "SAVE_AVANDER";
+const SAVE_ADDDETAIL = "SAVE_ADDDETAIL";
+const SAVE_ADDRESS = "SAVE_ADDRESS";
+const SAVE_QUESTION = "SAVE_QUESTION";
+const ADD_ADDRESS = "ADD_ADDRESS";
+const BUY_CART = "BUY_CART";
+
+export default{
+    //保存geohash
+    [SAVE_GEOHASH](state, geohash) {
+        state.geohash = geohash;
+    },
+    // 记录当前经度纬度
+    [RECORD_ADDRESS](state, {
+        latitude,
+        longitude
+    }) {
+        state.latitude = latitude;
+        state.longitude = longitude;
+    },
+}
